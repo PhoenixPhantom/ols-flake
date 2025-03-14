@@ -26,8 +26,8 @@
             version = "nightly";
          in
          stdenv.mkDerivation {
-            pname = "ols";
             name = "ols";
+
             src = fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
@@ -49,7 +49,6 @@
                odin
             ];
 
-            #prefer -microarch:native to -microarch:znver4
             buildPhase = ''
                runHook preBuild
 
