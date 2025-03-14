@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741980400,
-        "narHash": "sha256-g5nt19upnOs/iaP8n9gF5G6WrI8Q4BOXj9wa8pmzCXo=",
+        "lastModified": 1741983412,
+        "narHash": "sha256-rQ2rmOmaYwfMV5UR49e/H9wwQqCcA15Hm6phieBsfjI=",
         "ref": "refs/heads/master",
-        "rev": "ef8a25bbad43206e8db9d5f00da0ef0e5e4c7768",
-        "revCount": 1,
+        "rev": "5458385e627f5953ac90fcfea0c607edc8b56d75",
+        "revCount": 3,
         "type": "git",
         "url": "file:///home/phoenix/Code/odin_flake"
       },

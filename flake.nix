@@ -26,15 +26,18 @@
             version = "nightly";
          in
          stdenv.mkDerivation {
+            pname = "ols";
             name = "ols";
             src = fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "";
+               hash = "sha256-aUQKbZOrxDdUGORY2Rr2Drfxi0Q+dZZQSBCkJ+XQhcE=";
             };
 
             postPatch = ''
+               substituteInPlace build.sh \
+               --replace-fail "-microarch:native" ""
                patchShebangs build.sh odinfmt.sh
                '';
 
@@ -42,7 +45,6 @@
                makeBinaryWrapper
             ];
 
-            odin = (callPackage ./odinlang.nix {});
             buildInputs = [
                odin
             ];
@@ -51,8 +53,7 @@
             buildPhase = ''
                runHook preBuild
 
-               odin build src/ -show-timings -collection:src=src -out:ols -microarch:znver4 -no-bounds-check -o:speed $@
-               ./odinfmt.sh
+               ./build.sh && ./odinfmt.sh
 
                runHook postBuild
                '';
