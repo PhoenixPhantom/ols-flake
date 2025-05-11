@@ -32,7 +32,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "sha256-aUQKbZOrxDdUGORY2Rr2Drfxi0Q+dZZQSBCkJ+XQhcE=";
+               hash = "sha256-2Mzbld71I0j+lJ6PmuYe8qMIi6oS7u70u9w+5A23DbY=";
             };
 
             postPatch = ''
