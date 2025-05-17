@@ -4,7 +4,7 @@
       nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
       flake-utils.url = "github:numtide/flake-utils";
       odinlang = {
-         url = "git+file:///home/phoenix/Code/odin_flake";
+         url = "git+file:///home/phoenix/Code/odin-flake";
          inputs = {
             nixpkgs.follows = "nixpkgs";
             flake-utils.follows = "flake-utils";
