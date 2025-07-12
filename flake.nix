@@ -1,7 +1,7 @@
 # flake.nix
 {
    inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
       flake-utils.url = "github:numtide/flake-utils";
       odinlang = {
          url = "git+file:///home/phoenix/Code/odin-flake";
@@ -32,7 +32,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "sha256-2Mzbld71I0j+lJ6PmuYe8qMIi6oS7u70u9w+5A23DbY=";
+               hash = "sha256-UyziSG7TNCVli4K7NwgSmMlRZkRuD4zB50MlBIqKod0=";
             };
 
             postPatch = ''
