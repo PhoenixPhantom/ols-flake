@@ -1,20 +1,13 @@
 # flake.nix
 {
    inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       flake-utils.url = "github:numtide/flake-utils";
-      odinlang = {
-         url = "git+file:///home/phoenix/Code/odin-flake";
-         inputs = {
-            nixpkgs.follows = "nixpkgs";
-            flake-utils.follows = "flake-utils";
-         };
-      };
    };
-   outputs = { self, nixpkgs, flake-utils, odinlang }:
+   outputs = { self, nixpkgs, flake-utils }:
       let
          system = "x86_64-linux";
-         overlays = [ odinlang.overlays.default ];
+         overlays = [];
          pkgs = import nixpkgs {
             inherit system overlays;
          };
@@ -32,7 +25,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "sha256-UyziSG7TNCVli4K7NwgSmMlRZkRuD4zB50MlBIqKod0=";
+               hash = "sha256-nbJuvdkQvwKiV1x/s97GpORGcYUtPXRvImZgYlNEt5E=";
             };
 
             postPatch = ''

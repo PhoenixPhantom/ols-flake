@@ -20,48 +20,24 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1752162966,
-        "narHash": "sha256-3MxxkU8ZXMHXcbFz7UE4M6qnIPTYGcE/7EMqlZNnVDE=",
+        "lastModified": 1754214453,
+        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "10e687235226880ed5e9f33f1ffa71fe60f2638a",
+        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
-      }
-    },
-    "odinlang": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1752341172,
-        "narHash": "sha256-aYZi/DBRerope7UG65KX1q9oVI5kT4tfF2QCn9vSEJ8=",
-        "ref": "refs/heads/master",
-        "rev": "96a99c6fddf22d96faf05f9e2c06a3cf2e3e86e5",
-        "revCount": 10,
-        "type": "git",
-        "url": "file:///home/phoenix/Code/odin-flake"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/phoenix/Code/odin-flake"
       }
     },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "odinlang": "odinlang"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
