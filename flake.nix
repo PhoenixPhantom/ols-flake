@@ -12,16 +12,15 @@
             inherit system overlays;
          };
       in
-      with pkgs;
       {
          packages.${system}.default =
          let
             version = "nightly";
          in
-         stdenv.mkDerivation {
+         pkgs.stdenv.mkDerivation( self: {
             name = "ols";
 
-            src = fetchFromGitHub {
+            src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
@@ -35,11 +34,13 @@
                '';
 
             nativeBuildInputs = [
-               makeBinaryWrapper
+               pkgs.makeBinaryWrapper
             ];
 
+            odin-override = pkgs.lib.mkDefault pkgs.odin;
+
             buildInputs = [
-               odin
+               self.odin-override
             ];
 
             buildPhase = ''
@@ -54,13 +55,13 @@
                runHook preInstall
 
                install -Dm755 ols odinfmt -t $out/bin/
-               wrapProgram $out/bin/ols --set-default ODIN_ROOT ${odin}/share
+               wrapProgram $out/bin/ols --set-default ODIN_ROOT ${self.odin-override}/share
 
                runHook postInstall
                '';
 
-            passthru.updateScript = unstableGitUpdater { hardcodeZeroVersion = true; };
-         };
+            passthru.updateScript = pkgs.unstableGitUpdater { hardcodeZeroVersion = true; };
+         });
          overlays = {
             default = final: prev: {
                ols = self.packages.${prev.system}.default;
