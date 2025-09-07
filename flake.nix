@@ -15,7 +15,7 @@
       {
          packages.${system}.default =
          let
-            version = "nightly";
+            version = "d0262987d39741f9774fd7de8d9c4b331308a968"; # nightly
          in
          pkgs.stdenv.mkDerivation( self: {
             name = "ols";
@@ -24,7 +24,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "sha256-nbJuvdkQvwKiV1x/s97GpORGcYUtPXRvImZgYlNEt5E=";
+               hash = "sha256-AuBx/1G+M36HpOimOL52pLZ3n/+HizkHOxAv8tXt/38=";
             };
 
             postPatch = ''
