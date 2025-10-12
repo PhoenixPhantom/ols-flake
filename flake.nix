@@ -15,9 +15,9 @@
       {
          packages.${system}.default =
          let
-            version = "d4e3c3a58d3ae0c5d42ef76b3de037fc5b720f77"; # nightly
+            version = "cbb4e352197763b0475ed3be6650fc9fe08d9c99"; # nightly
          in
-         pkgs.stdenv.mkDerivation( self: {
+         pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
             inherit version;
 
@@ -25,7 +25,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = version;
-               hash = "sha256-PNSU2J8cLSTsLZqKVOXyEAJGDjhsKdcxqsa4Tdq+wQU=";
+               hash = "sha256-y1RzC3QweG7ocZAse/Lhdvt9yY46BPSOBWw8deyQCDM=";
             };
 
             postPatch = ''
@@ -38,10 +38,10 @@
                pkgs.makeBinaryWrapper
             ];
 
-            odin-override = pkgs.lib.mkDefault pkgs.odin;
+            odin-override = pkgs.odin;
 
             buildInputs = [
-               self.odin-override
+               prev.odin-override
             ];
 
             buildPhase = ''
@@ -56,7 +56,7 @@
                runHook preInstall
 
                install -Dm755 ols odinfmt -t $out/bin/
-               wrapProgram $out/bin/ols --set-default ODIN_ROOT ${self.odin-override}/share
+               wrapProgram $out/bin/ols --set-default ODIN_ROOT ${prev.odin-override}/share
 
                runHook postInstall
                '';
