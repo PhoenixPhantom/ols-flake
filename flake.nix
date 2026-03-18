@@ -13,19 +13,15 @@
          };
       in
       {
-         packages.${system}.default =
-         let
-            version = "cbb4e352197763b0475ed3be6650fc9fe08d9c99"; # nightly
-         in
-         pkgs.stdenv.mkDerivation( prev: {
+         packages.${system}.default = pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
-            inherit version;
+            version = "2026-03";
 
             src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
-               rev = version;
-               hash = "sha256-y1RzC3QweG7ocZAse/Lhdvt9yY46BPSOBWw8deyQCDM=";
+               rev = "9e0b036bf6ee4ed0b55a0a7672ba6f07d9ca6a3c";
+               hash = "sha256-trEjJeKKiZMh4zrcKa+e4Lk1iV3iycuVaEGtujmrJnE=";
             };
 
             postPatch = ''
