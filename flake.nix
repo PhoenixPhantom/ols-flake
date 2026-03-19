@@ -20,8 +20,8 @@
             src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
-               rev = "9e0b036bf6ee4ed0b55a0a7672ba6f07d9ca6a3c";
-               hash = "sha256-trEjJeKKiZMh4zrcKa+e4Lk1iV3iycuVaEGtujmrJnE=";
+               rev = "6df736633040e58f48859f243ae3759706fe7be5";
+               hash = "sha256-Hx1wxYXHAAJ9s0mjBpj4SvVKSLJY7dCBK9+cVsDrLiY=";
             };
 
             postPatch = ''
