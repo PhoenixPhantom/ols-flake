@@ -3,17 +3,24 @@
    inputs = {
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       flake-utils.url = "github:numtide/flake-utils";
+      odinlang = {
+         url = "github:PhoenixPhantom/odin-flake";
+         inputs = {
+            nixpkgs.follows = "nixpkgs";
+            flake-utils.follows = "flake-utils";
+         };
+      };
    };
-   outputs = { self, nixpkgs, flake-utils }:
+   outputs = { self, nixpkgs, flake-utils, odinlang }:
+   flake-utils.lib.eachDefaultSystem (system:
       let
-         system = "x86_64-linux";
-         overlays = [];
+         overlays = [ odinlang.overlays.default ];
          pkgs = import nixpkgs {
             inherit system overlays;
          };
       in
-      {
-         packages.${system}.default = pkgs.stdenv.mkDerivation( prev: {
+      rec {
+         packages.default = pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
             version = "2026-03";
 
@@ -46,23 +53,29 @@
                ./build.sh && ./odinfmt.sh
 
                runHook postBuild
-               '';
+            '';
 
             installPhase = ''
                runHook preInstall
 
-               install -Dm755 ols odinfmt -t $out/bin/
+               mkdir -p $out/bin/builtin
+               install -Dm755 ols odinfmt builtin/* -t $out/bin/
                wrapProgram $out/bin/ols --set-default ODIN_ROOT ${prev.odin-override}/share
 
                runHook postInstall
-               '';
+            '';
 
             passthru.updateScript = pkgs.unstableGitUpdater { hardcodeZeroVersion = true; };
          });
-         overlays = {
-            default = final: prev: {
-               ols = self.packages.${prev.system}.default;
-            };
+         devShells.default = pkgs.mkShell {
+            name = "ols";
+            buildInputs = [ packages.default ];
+         };
+      }) // {
+      overlays = {
+         default = final: prev: {
+            ols = self.packages.${prev.system}.default;
          };
       };
+   };
 }

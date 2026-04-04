@@ -34,10 +34,34 @@
         "type": "github"
       }
     },
+    "odinlang": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773948916,
+        "narHash": "sha256-BJispkKti+9TV0J9gVS/spMfwhwCh32iRxas28C3xWk=",
+        "owner": "PhoenixPhantom",
+        "repo": "odin-flake",
+        "rev": "d73b5838dfeb1ccaded27c5796efd11adf81a088",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PhoenixPhantom",
+        "repo": "odin-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "odinlang": "odinlang"
       }
     },
     "systems": {
