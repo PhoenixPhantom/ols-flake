@@ -46,6 +46,9 @@
             buildInputs = [
                prev.odin-override
             ];
+            patches = [
+               ./tbs.patch
+            ];
 
             buildPhase = ''
                runHook preBuild
