@@ -22,13 +22,13 @@
       rec {
          packages.default = pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
-            version = "2026-03";
+            version = "2026-04";
 
             src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
-               rev = "6df736633040e58f48859f243ae3759706fe7be5";
-               hash = "sha256-Hx1wxYXHAAJ9s0mjBpj4SvVKSLJY7dCBK9+cVsDrLiY=";
+               rev = "9651e79d70e7d2f1877756cb2c11e50d83e71c1e";
+               hash = "sha256-aPYBK+UkbdY2WV+nmXwWdJTPsR1pTCvG7b/ORmXdcWE=";
             };
 
             postPatch = ''
@@ -46,9 +46,6 @@
             buildInputs = [
                prev.odin-override
             ];
-            patches = [
-               ./tbs.patch
-            ];
 
             buildPhase = ''
                runHook preBuild
@@ -63,7 +60,9 @@
 
                mkdir -p $out/bin/builtin
                install -Dm755 ols odinfmt builtin/* -t $out/bin/
-               wrapProgram $out/bin/ols --set-default ODIN_ROOT ${prev.odin-override}/share
+               wrapProgram $out/bin/ols \
+                  --set-default ODIN_ROOT ${prev.odin-override}/share \
+                  --set-default OLS_BUILTIN_FOLDER ${prev.odin-override}/share/base/builtin
 
                runHook postInstall
             '';
