@@ -28,7 +28,7 @@
                owner = "DanielGavin";
                repo = "ols";
                rev = "8bcda891f6ab2adfdc7d2b9a8106814b401adfcf";
-               hash = "sha256-aPYBK+UkbdY2WV+nmXwWdJTPsR1pTCvG7b/ORmXdcWE=";
+               hash = "sha256-xP2OiHNVfjuqTEWTo4iR+kQZuVvFwMVeea7ipFfFou8=";
             };
 
             postPatch = ''
