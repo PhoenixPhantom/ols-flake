@@ -44,11 +44,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776259002,
-        "narHash": "sha256-8GJAEmctMIZ/4pnObMbymjMuB5lV4RZO5nb9SEl7xIg=",
+        "lastModified": 1776456757,
+        "narHash": "sha256-AQwhpDMNIP8PyKtmTApLUv9LdGqkS4goORyh38UjPi4=",
         "owner": "PhoenixPhantom",
         "repo": "odin-flake",
-        "rev": "d9a1348c471b577295501ec6cb7a54f95732ae64",
+        "rev": "90c0211124576495c48678155c091e36d1de2a38",
         "type": "github"
       },
       "original": {

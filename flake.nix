@@ -22,12 +22,12 @@
       rec {
          packages.default = pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
-            version = "2026-04";
+            version = "nightly-2026-04-17";
 
             src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
-               rev = "9651e79d70e7d2f1877756cb2c11e50d83e71c1e";
+               rev = "8bcda891f6ab2adfdc7d2b9a8106814b401adfcf";
                hash = "sha256-aPYBK+UkbdY2WV+nmXwWdJTPsR1pTCvG7b/ORmXdcWE=";
             };
 
