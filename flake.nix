@@ -22,13 +22,13 @@
       rec {
          packages.default = pkgs.stdenv.mkDerivation( prev: {
             name = "ols";
-            version = "nightly-2026-06-30";
+            version = "nightly-2026-09-02";
 
             src = pkgs.fetchFromGitHub {
                owner = "DanielGavin";
                repo = "ols";
-               rev = "b2095edade975ce7e7bada3ef29ca07aba8ca45f";
-               hash = "sha256-CoPYFomYsDP96x0isY7NVa+yiM5Cj8l4q3MRwHUXreQ=";
+               rev = "2ed4006586a895407778f17b28c2f449f0deafb7";
+               hash = "sha256-o+fDdYjP5GIPohRGvLGrsautGsR/OSICfTFC3RvGgZg=";
             };
 
             postPatch = ''
